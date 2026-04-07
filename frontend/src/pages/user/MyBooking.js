@@ -9,7 +9,7 @@ const MyBooking = () => {
 
     const getBookings = async () => {
         try {
-            const res = await fetch("http://localhost:5000/api/user/user-booking", {
+            const res = await fetch("https://brickart.onrender.com/api/user/user-booking", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -50,7 +50,7 @@ const MyBooking = () => {
 
                                     {/* IMAGE */}
                                     <img
-                                        src={`http://localhost:5000/uploads/${b.brickId?.image}`}
+                                        src={`https://brickart.onrender.com/uploads/${b.brickId?.image}`}
                                         className="booking-img" alt=""
                                     />
 

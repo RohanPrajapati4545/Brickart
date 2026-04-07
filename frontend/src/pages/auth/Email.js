@@ -14,7 +14,7 @@ const Email = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/send-otp", {
+      const res = await fetch("https://brickart.onrender.com/api/auth/send-otp", {
         method: "POST",
         body: JSON.stringify({ email }),
         headers: {

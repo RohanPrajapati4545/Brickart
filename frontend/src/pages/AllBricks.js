@@ -9,7 +9,7 @@ const AllBricks = () => {
     const navigate = useNavigate()
     const getAllBricks = async () => {
         try {
-            const res = await fetch("http://localhost:5000/api/admin/get-all-bricks", {
+            const res = await fetch("https://brickart.onrender.com/api/admin/get-all-bricks", {
                 method: "GET",
 
             })

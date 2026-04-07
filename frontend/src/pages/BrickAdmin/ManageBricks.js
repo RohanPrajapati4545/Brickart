@@ -9,7 +9,7 @@ const ManageBricks = () => {
     const { token } = useContext(AuthContext)
     const getBricks = async () => {
         try {
-            const res = await fetch("http://localhost:5000/api/admin/get-all-bricks", {
+            const res = await fetch("https://brickart.onrender.com/api/admin/get-all-bricks", {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`
@@ -32,7 +32,7 @@ const ManageBricks = () => {
     }
     const deleteBrick = async (id) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/delete-brick/${id}`, {
+            const res = await fetch(`https://brickart.onrender.com/api/admin/delete-brick/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const ManageBricks = () => {
 
         try {
             const res = await fetch(
-                `http://localhost:5000/api/admin/update-brick/${singleBrick._id}`,
+                `https://brickart.onrender.com/api/admin/update-brick/${singleBrick._id}`,
                 {
                     method: "PUT",
                     headers: {
@@ -138,7 +138,7 @@ const ManageBricks = () => {
                                         <td>{item.description}</td>
                                         <td>
                                             <img
-                                                src={`http://localhost:5000/uploads/${item.image}`}
+                                                src={`https://brickart.onrender.com/uploads/${item.image}`}
                                                 alt="brick"
                                                 width="60"
                                                 height="60"
@@ -146,7 +146,7 @@ const ManageBricks = () => {
                                         </td>
                                         <td>
                                             <video width="100" height="100" controls>
-                                            <source src={`http://localhost:5000/uploads/${item.video}`} />
+                                            <source src={`https://brickart.onrender.com/uploads/${item.video}`} />
                                         </video>
                                         </td>
 

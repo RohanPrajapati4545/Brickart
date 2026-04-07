@@ -10,7 +10,7 @@ const SingleBrick = () => {
 const navigate=useNavigate()
     const getSingleBrick = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/single-brick/${id}`, {
+            const res = await fetch(`https://brickart.onrender.com/api/admin/single-brick/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

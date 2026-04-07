@@ -9,7 +9,7 @@ const BookingRequest = () => {
 
     const getAllBookings = async () => {
         try {
-            const res = await fetch("http://localhost:5000/api/admin/get-all-bookings", {
+            const res = await fetch("https://brickart.onrender.com/api/admin/get-all-bookings", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -37,7 +37,7 @@ const BookingRequest = () => {
     const updateStatus = async (id, status) => {
         try {
             const res = await fetch(
-                `http://localhost:5000/api/admin/update-booking/${id}`,
+                `https://brickart.onrender.com/api/admin/update-booking/${id}`,
                 {
                     method: "PUT",
                     headers: {
@@ -102,7 +102,7 @@ const BookingRequest = () => {
                                 {/* IMAGE */}
                                 <td>
                                     <img
-                                        src={`http://localhost:5000/uploads/${b.brickId?.image}`}
+                                        src={`https://brickart.onrender.com/uploads/${b.brickId?.image}`}
                                         width="70"
                                         height="50"
                                         style={{ objectFit: "cover" }}

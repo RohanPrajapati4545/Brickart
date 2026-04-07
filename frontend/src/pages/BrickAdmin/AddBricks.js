@@ -30,7 +30,7 @@ const AddBricks = () => {
     formData.append("image", image)
     formData.append("video", video)
 
-    const res = await fetch("http://localhost:5000/api/admin/add-brick", {
+    const res = await fetch("https://brickart.onrender.com/api/admin/add-brick", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`   

@@ -9,7 +9,7 @@ const AllUsers = () => {
 
   const getUsers = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/admin/all-users", {
+      const res = await fetch("https://brickart.onrender.com/api/admin/all-users", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
