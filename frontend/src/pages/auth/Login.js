@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault()
 
     try {
-  const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
+      const res = await fetch("https://brickart.onrender.com/api/auth/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' }
