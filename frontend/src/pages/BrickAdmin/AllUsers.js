@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useCallback } from 'react'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthContext'
 
@@ -7,7 +7,7 @@ const AllUsers = () => {
   const [users, setUsers] = useState([])
   const { token } = useContext(AuthContext)
 
-  const getUsers = async () => {
+  const getUsers = useCallback(async () => {
     try {
       const res = await fetch("https://brickart.onrender.com/api/admin/all-users", {
         method: "GET",
@@ -30,13 +30,13 @@ const AllUsers = () => {
       console.log(error)
       toast.error("Something went wrong")
     }
-  }
+  }, [token])
 
   useEffect(() => {
     if (token) {
       getUsers()
     }
-  }, [token])
+  }, [token, getUsers])
 
   return (
     <div className="container mt-4">
@@ -50,7 +50,6 @@ const AllUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Contact</th>
-            
             </tr>
           </thead>
 
@@ -63,12 +62,11 @@ const AllUsers = () => {
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.contact}</td>
-                   
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5">No Users Found</td>
+                  <td colSpan="4">No Users Found</td>
                 </tr>
               )
             }
