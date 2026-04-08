@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
+import "./../../App.css";
 
 const MyBooking = () => {
 
@@ -32,61 +33,69 @@ const MyBooking = () => {
 
     return (
         <div className="booking-page">
+
             <div className="container">
 
-                <h3 className="booking-title mb-4">🧱 My Brick Bookings</h3>
+                <h3 className="booking-title mb-5">My Brick Bookings</h3>
 
                 <div className="row">
 
                     {bookings.length === 0 ? (
-                        <p>No Bookings Found</p>
+                        <p className="text-center">No Bookings Found</p>
                     ) : (
 
                         bookings.map((b) => (
 
-                            <div className="col-md-4" key={b._id}>
+                            <div className="col-md-4 mb-4" key={b._id}>
 
                                 <div className="booking-card">
 
                                     {/* IMAGE */}
                                     <img
                                         src={`https://brickart.onrender.com/uploads/${b.brickId?.image}`}
-                                        className="booking-img" alt=""
+                                        className="booking-img"
+                                        alt=""
                                     />
 
-                                    {/* DETAILS */}
+                                    {/* CONTENT */}
                                     <div className="booking-content">
 
-                                        <h5>{b.brickId?.brickName || "No Brick Found"}</h5>
+                                        <h5>
+                                            {b.brickId?.brickName || "No Brick Found"}
+                                        </h5>
+
+                                        <p><b>Quantity:</b> {b.quantity}</p>
 
                                         <p>
-                                            <strong>Qty:</strong> {b.quantity}
-                                        </p>
-                                        <p>
-                                            <strong>Brick Price:</strong>  ₹{b.brickId?.pricePerBrick} per brick
-                                            
-                                            </p>
-                                        <p>
-                                            <strong>Total:</strong> ₹{b.totalAmount}
+                                            <b>Price:</b> ₹{b.brickId?.pricePerBrick} / brick
                                         </p>
 
                                         <p>
-                                            <strong>Delivery:</strong>{" "}
-                                            {b.deliveryDate && b.deliveryDate !== "0001-01-01T00:00:00.000Z"
+                                            <b>Total Amount:</b> ₹{b.totalAmount}
+                                        </p>
+
+                                        <p>
+                                            <b>Delivery Date:</b>{" "}
+                                            {b.deliveryDate &&
+                                                b.deliveryDate !== "0001-01-01T00:00:00.000Z"
                                                 ? new Date(b.deliveryDate).toLocaleDateString()
                                                 : "Not Set"}
                                         </p>
 
                                         {/* STATUS */}
-                                        <div className="d-flex justify-content-between align-items-center mt-2">
+                                        <div className="status-wrapper">
 
-                                            <span className={`status ${b.status}`}>
-                                                {b.status}
-                                            </span>
+                                            {/* BOOKING STATUS */}
+                                            <div className={`status-box booking ${b.status}`}>
+                                                <span className="label">Booking Status</span>
+                                                <span className="value">{b.status}</span>
+                                            </div>
 
-                                            <span className={`payment ${b.paymentStatus}`}>
-                                                {b.paymentStatus}
-                                            </span>
+                                            {/* PAYMENT STATUS */}
+                                            <div className={`status-box payment ${b.paymentStatus}`}>
+                                                <span className="label">Payment Status</span>
+                                                <span className="value">{b.paymentStatus}</span>
+                                            </div>
 
                                         </div>
 
@@ -103,6 +112,7 @@ const MyBooking = () => {
                 </div>
 
             </div>
+
         </div>
     );
 };

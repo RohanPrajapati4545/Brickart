@@ -161,7 +161,7 @@ const BookingRequest = () => {
                                             style={{ border: 0 }}
                                             loading="lazy"
                                             src={`https://www.google.com/maps?q=${b.location.lat},${b.location.lng}&output=embed`}
-                                        ></iframe>
+                                     title="map"    ></iframe>
                                     ) : "N/A"}
                                 </td>
 

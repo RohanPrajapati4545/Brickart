@@ -397,3 +397,268 @@
   background: #c3e6cb;
   color: #155724;
 }
+/* PAGE BACKGROUND */
+.brick-page {
+    background: linear-gradient(to bottom, #f4f7f6, #e8f1ee);
+    min-height: 100vh;
+    padding: 50px 0;
+}
+
+/* MAIN CARD */
+.brick-card {
+    width: 75%;
+    margin: auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.brick-title {
+    font-weight: 700;
+    color: #2e5f55;
+}
+
+/* DESCRIPTION */
+.brick-desc {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* DETAILS */
+.brick-details p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.brick-details span {
+    font-weight: 600;
+    color: #2e5f55;
+}
+
+/* BUTTON */
+.order-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background: #2e5f55;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.order-btn:hover {
+    background: #1f463e;
+    transform: scale(1.03);
+}
+
+/* IMAGE */
+.brick-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.brick-img:hover {
+    transform: scale(1.05);
+}
+
+/* VIDEO */
+.video-section {
+    margin-top: 30px;
+}
+
+.video-section video {
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* 🌿 PAGE BACKGROUND (Premium Gradient + Blur Feel) */
+.booking-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e6f0ee, #f7fbfa);
+    padding: 60px 0;
+}
+
+/* 🧱 TITLE */
+.booking-title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 28px;
+    color: #2e5f55;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+/* 🧾 CARD (Glass Effect) */
+.booking-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+    position: relative;
+}
+
+/* ✨ GLOW BORDER */
+.booking-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 1px;
+    background: linear-gradient(120deg, #2e5f55, transparent);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* 🚀 HOVER */
+.booking-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+/* 🖼 IMAGE */
+.booking-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.booking-card:hover .booking-img {
+    transform: scale(1.08);
+}
+
+/* 📦 CONTENT */
+.booking-content {
+    padding: 18px;
+}
+
+/* 🧱 TITLE INSIDE CARD */
+.booking-content h5 {
+    color: #2e5f55;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.booking-content p {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+/* 💰 BOLD TEXT */
+.booking-content b {
+    color: #2e5f55;
+}
+
+/* STATUS WRAPPER */
+.status-wrapper {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* STATUS BOX (Modern Pill Card) */
+.status-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ✨ SHINE EFFECT */
+.status-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+}
+
+.status-box:hover::after {
+    left: 100%;
+}
+
+/* LABEL */
+.status-box .label {
+    opacity: 0.7;
+    font-size: 12px;
+}
+
+/* VALUE */
+.status-box .value {
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+/* 🎨 BOOKING STATUS */
+.status-box.booking.pending {
+    background: linear-gradient(135deg, #fff3cd, #ffe69c);
+    color: #856404;
+}
+
+.status-box.booking.approved {
+    background: linear-gradient(135deg, #d4edda, #a3e4b5);
+    color: #155724;
+}
+
+.status-box.booking.rejected {
+    background: linear-gradient(135deg, #f8d7da, #f1aeb5);
+    color: #721c24;
+}
+
+/* 💳 PAYMENT STATUS */
+.status-box.payment.paid {
+    background: linear-gradient(135deg, #d4edda, #a3e4b5);
+    color: #155724;
+}
+
+.status-box.payment.failed {
+    background: linear-gradient(135deg, #f8d7da, #f1aeb5);
+    color: #721c24;
+}
+
+.status-box.payment.pending {
+    background: linear-gradient(135deg, #fff3cd, #ffe69c);
+    color: #856404;
+}
+
+/* 🧠 HOVER MICRO INTERACTION */
+.status-box:hover {
+    transform: translateX(6px);
+}
+
+/* 📱 MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    .booking-title {
+        font-size: 22px;
+    }
+
+    .booking-card {
+        margin-bottom: 20px;
+    }
+}

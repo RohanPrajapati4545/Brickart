@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
-import { toast } from 'react-toastify'
+import "./../App.css"
 
 const SingleBrick = () => {
     const { token } = useContext(AuthContext)
     const { id } = useParams()
     const [brick, setBrick] = useState(null)
-const navigate=useNavigate()
+    const navigate = useNavigate()
+
     const getSingleBrick = async () => {
         try {
             const res = await fetch(`https://brickart.onrender.com/api/admin/single-brick/${id}`, {
@@ -16,65 +17,59 @@ const navigate=useNavigate()
                 }
             })
             const data = await res.json()
-
             if (!res.ok) return
-
             setBrick(data.brick)
-            console.log("ID:", id)
         } catch (error) {
             console.log(error)
         }
     }
 
     useEffect(() => {
-    if (token && id) {
-        getSingleBrick()
-    }
-}, [token, id])
+        if (token && id) {
+            getSingleBrick()
+        }
+    }, [token, id])
 
-  if (!brick) {
-  return <h3 className="text-center mt-5">Loading...</h3>
-}
+    if (!brick) {
+        return <h3 className="text-center mt-5">Loading...</h3>
+    }
 
     return (
-        <div className="container mt-5" style={{ width: "70%" }}>
+        <div className="brick-page">
 
-            <div className="card shadow p-4">
+            <div className="brick-card">
 
-                {/* 🔥 ROW 1 → TEXT + IMAGE */}
                 <div className="row align-items-center">
 
-                    {/* LEFT → TEXT */}
+                    {/* LEFT */}
                     <div className="col-md-6">
 
-                        <h2 className="mb-3">{brick.brickName}</h2>
+                        <h2 className="brick-title">{brick.brickName}</h2>
 
-                        <p className="text-muted">{brick.description}</p>
+                        <p className="brick-desc">{brick.description}</p>
 
-                        <hr />
+                        <div className="brick-details">
+                            <p><span>Price:</span> ₹{brick.pricePerBrick}</p>
+                            <p><span>Category:</span> {brick.category}</p>
+                            <p><span>Stock:</span> {brick.stock}</p>
+                            <p><span>Size:</span> {brick.size}</p>
+                        </div>
 
-                        <p><b>Price:</b> ₹{brick.pricePerBrick} / per brick</p>
-                        <p><b>Category:</b> {brick.category}</p>
-                        <p><b>Stock:</b> {brick.stock}</p>
-                        <p><b>Size:</b> {brick.size}</p>
-    
-
-                         <button 
-              className=" premium-btn w-100 mt-4"
-              onClick={()=>navigate(`/brick-book/${brick._id}`)}
-            >
+                        <button
+                            className="order-btn"
+                            onClick={() => navigate(`/brick-book/${brick._id}`)}
+                        >
                             Order Now
                         </button>
 
                     </div>
 
-                    {/* RIGHT → IMAGE */}
-                    <div className="col-md-6">
+                    {/* RIGHT IMAGE */}
+                    <div className="col-md-6 text-center">
 
                         <img
-                            src={`http://localhost:5000/uploads/${brick.image}`}
-                            className="img-fluid rounded"
-                            style={{ height: "300px", objectFit: "cover", width: "100%" }}
+                            src={`https://brickart.onrender.com/uploads/${brick.image}`}
+                            className="brick-img"
                             alt=""
                         />
 
@@ -82,25 +77,16 @@ const navigate=useNavigate()
 
                 </div>
 
-                {/* 🔥 ROW 2 → VIDEO FULL WIDTH */}
+                {/* VIDEO */}
                 {
                     brick.video && (
-                        <div className="row mt-4">
-                            <div className="col-12">
-
-                                <video
-                                    width="100%"
-                                    height="350"
-                                    controls
-                                    className="rounded shadow"
-                                >
-                                    <source
-                                        src={`http://localhost:5000/uploads/${brick.video}`}
-                                        type="video/mp4"
-                                    />
-                                </video>
-
-                            </div>
+                        <div className="video-section">
+                            <video controls>
+                                <source
+                                    src={`https://brickart.onrender.com/uploads/${brick.video}`}
+                                    type="video/mp4"
+                                />
+                            </video>
                         </div>
                     )
                 }

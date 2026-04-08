@@ -3,7 +3,6 @@ import "./../App.css"
 
 import img1 from "./../images/img1.jpg"
 import img2 from "./../images/img2.jpeg"
-import video1 from "./../images/1774549356145.mp4"
 const OurWork = () => {
 
   return (

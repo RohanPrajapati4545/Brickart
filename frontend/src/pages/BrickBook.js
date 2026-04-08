@@ -29,7 +29,7 @@ const BrickBook = () => {
 
     const handleBookingAfterPayment = async () => {
     try {
-        const res = await fetch("http://localhost:5000/api/admin/brick-booking", {
+        const res = await fetch("https://brickart.onrender.com/api/admin/brick-booking", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const BrickBook = () => {
 
     const createOrder = async (brickId) => {
         try {
-            const res = await fetch('http://localhost:5000/api/order/create-order', {
+            const res = await fetch('https://brickart.onrender.com/api/order/create-order', {
 
                 method: "POST",
                 headers: {
@@ -106,7 +106,7 @@ const BrickBook = () => {
 
     const verifyPayment = async (paymentData) => {
         try {
-            const res = await fetch("http://localhost:5000/api/payment/verify-payment", {
+            const res = await fetch("https://brickart.onrender.com/api/payment/verify-payment", {
                 method: "POST",
                 headers: {
                     'Content-Type': "application/json"
@@ -160,7 +160,7 @@ const BrickBook = () => {
 
     const paymentStatus = async () => {
         try {
-            const res = await fetch("http://localhost:5000/api/admin/payment-status", {
+            const res = await fetch("https://brickart.onrender.com/api/admin/payment-status", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -184,52 +184,64 @@ const BrickBook = () => {
     }, [orderId])
 
 
-    return (
-        <div className="container mt-5" style={{ maxWidth: "600px" }}>
-            <div className="card shadow p-4">
+   return (
+    <div style={{
+        minHeight: "100vh",
+        background: "linear-gradient(to bottom, #f4f7f6, #e8f1ee)",
+        padding: "50px 0"
+    }}>
 
-                <h3 className="text-center mb-4">Book Bricks</h3>
+        <div className="container" style={{ maxWidth: "650px" }}>
 
-                <form >
+            <div className="card border-0 shadow-lg p-4" style={{ borderRadius: "20px" }}>
+
+                <h3 className="text-center mb-4" style={{
+                    color: "#2e5f55",
+                    fontWeight: "700"
+                }}>
+                    Book Your Bricks
+                </h3>
+
+                <form>
 
                     <input
                         type="text"
                         name="name"
-                        placeholder="Enter Name"
+                        placeholder="Full Name"
                         className="form-control mb-3"
                         value={formData.name}
                         onChange={handleChange}
-                        required
+                        style={{ borderRadius: "10px" }}
                     />
 
                     <input
                         type="text"
                         name="contact"
-                        placeholder="Enter Contact"
+                        placeholder="Contact Number"
                         className="form-control mb-3"
                         value={formData.contact}
                         onChange={handleChange}
-                        required
+                        style={{ borderRadius: "10px" }}
                     />
 
                     <input
                         type="number"
                         name="quantity"
-                        placeholder="Enter Quantity"
+                        placeholder="Quantity"
                         className="form-control mb-3"
                         value={formData.quantity}
                         onChange={handleChange}
-                        required
+                        style={{ borderRadius: "10px" }}
                     />
 
                     <input
                         type="text"
                         name="address"
-                        placeholder="Enter Address"
+                        placeholder="Delivery Address"
                         className="form-control mb-3"
                         value={formData.address}
                         onChange={handleChange}
-                        required
+                        style={{ borderRadius: "10px" }}
                     />
 
                     <input
@@ -238,51 +250,89 @@ const BrickBook = () => {
                         className="form-control mb-3"
                         value={formData.deliveryDate}
                         onChange={handleChange}
-                        required
+                        style={{ borderRadius: "10px" }}
                     />
+
+                    {/* LOCATION BUTTON */}
                     <button
                         type="button"
-                        className="btn btn-outline-primary mb-3 w-100"
+                        className="w-100 mb-3"
                         onClick={getLocation}
+                        style={{
+                            borderRadius: "30px",
+                            border: "1px solid #2e5f55",
+                            color: "#2e5f55",
+                            padding: "10px",
+                            background: "transparent",
+                            fontWeight: "500"
+                        }}
                     >
                         📍 Share my current location
                     </button>
 
+                    {/* LOCATION SHOW */}
                     {location && (
-                        <div className="alert alert-success text-center">
+                        <div style={{
+                            background: "#e8f1ee",
+                            borderRadius: "10px",
+                            padding: "10px",
+                            textAlign: "center",
+                            marginBottom: "10px"
+                        }}>
                             📍 Location Captured <br />
-                            Lat: {location.lat.toFixed(5)} <br />
-                            Lng: {location.lng.toFixed(5)}
+                            {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
                         </div>
                     )}
 
+                    {/* MAP */}
                     {location && (
-                        <div className="mb-3">
-                            <iframe
-                                width="100%"
-                                height="200"
-                                style={{ border: 0, borderRadius: "10px" }}
-                                loading="lazy"
-                                src={`https://www.google.com/maps?q=${location.lat},${location.lng}&output=embed`}
-                            ></iframe>
-                        </div>
+                        <iframe
+                            width="100%"
+                            height="200"
+                            style={{
+                                border: 0,
+                                borderRadius: "15px",
+                                marginBottom: "15px"
+                            }}
+                            src={`https://www.google.com/maps?q=${location.lat},${location.lng}&output=embed`}
+                            title="map"
+                        ></iframe>
                     )}
+
                     <textarea
                         name="message"
-                        placeholder="Message (optional)"
+                        placeholder="Optional message..."
                         className="form-control mb-3"
                         value={formData.message}
                         onChange={handleChange}
+                        style={{ borderRadius: "10px" }}
                     />
-                    <button type='button' onClick={() => handleGetService(id)} required>Make Payment</button>
 
-                   
+                    {/* PAYMENT BUTTON */}
+                    <button
+                        type="button"
+                        onClick={() => handleGetService(id)}
+                        style={{
+                            width: "100%",
+                            padding: "12px",
+                            borderRadius: "30px",
+                            border: "none",
+                            background: "#2e5f55",
+                            color: "white",
+                            fontWeight: "600",
+                            fontSize: "16px",
+                            transition: "0.3s"
+                        }}
+                    >
+                        Make Payment
+                    </button>
 
                 </form>
 
             </div>
         </div>
-    )
+    </div>
+)
 }
 
 export default BrickBook

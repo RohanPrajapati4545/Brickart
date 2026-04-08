@@ -41,7 +41,7 @@ const AllBricks = () => {
                         <div className="col-md-4 mb-4" key={item._id}>
                             <div className="card shadow">
 
-                                <img src={`http://localhost:5000/uploads/${item.image}`}
+                                <img src={`https://brickart.onrender.com/uploads/${item.image}`}
                                     className="card-img-top"
                                     height="200"
                                     style={{ objectFit: "cover" }} alt=''/>

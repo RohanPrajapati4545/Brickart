@@ -21,7 +21,7 @@ const Header = () => {
         {/* LOGO */}
         <NavLink className="navbar-brand logo d-flex align-items-center gap-2" to="/">
          
-          <span className='ps-2'>HomeService</span>
+          <span className='ps-3'>Brickart</span>
         </NavLink>
 
         {/* MENU */}
@@ -85,6 +85,7 @@ const Header = () => {
                   <NavLink className="dropdown-item" to="/" onClick={logout}>
                 <i className="fa-solid fa-right-from-bracket me-2"></i>  Logout
                 </NavLink>
+
 
                 </div>
 
