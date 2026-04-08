@@ -67,7 +67,47 @@
   .custom-header .nav-link {
     margin: 10px 0;
   }
+   .profile-dropdown {
+    right: auto;
+    left: 0;   /* 👉 icon ke just niche align */
+  }
 }
+@media (max-width: 991px) {
+
+  .navbar {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    top: 70px;   /* header ke niche */
+    left: 10px;
+    width: 220px;
+    
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    display: none;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+}
+.navbar-collapse {
+  transition: all 0.3s ease;
+}
+
 
 
 .login-card {
