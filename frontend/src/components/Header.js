@@ -11,115 +11,128 @@ const Header = () => {
   const [profileOpen, setProfileOpen] = useState(false)
 
   return (
-    <nav className="navbar navbar-expand-lg custom-navbar py-3">
+    <div onClick={() => {
+      setOpen(false)
+      setProfileOpen(false)
+    }}>
 
-      <div className="container">
+      <nav
+        className="navbar navbar-expand-lg custom-navbar py-3"
+        onClick={(e) => e.stopPropagation()}
+      >
 
-        {/* TOGGLE BUTTON */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={() => setOpen(!open)}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        <div className="container">
 
-        {/* LOGO */}
-        <NavLink className="navbar-brand logo d-flex align-items-center gap-2" to="/">
-          <span className='ps-3'>Brickart</span>
-        </NavLink>
+          {/* TOGGLE BUTTON */}
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={() => setOpen(!open)}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-        {/* MENU */}
-        <div className={`navbar-collapse ${open ? "show" : "collapse"} justify-content-end`}>
+          {/* LOGO */}
+          <NavLink className="navbar-brand logo d-flex align-items-center gap-2" to="/">
+            <span className='ps-3'>Brickart</span>
+          </NavLink>
 
-          <ul className="navbar-nav ms-auto align-items-lg-center gap-3 flex-column flex-lg-row">
+          {/* MENU */}
+          <div className={`navbar-collapse ${open ? "show" : "collapse"} justify-content-end`}>
 
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/" onClick={()=>setOpen(false)}>Home</NavLink>
-            </li>
+            <ul className="navbar-nav ms-auto align-items-lg-center gap-3 flex-column flex-lg-row">
 
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/about" onClick={()=>setOpen(false)}>About</NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/work-gallery" onClick={()=>setOpen(false)}>Our Work</NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/contact" onClick={()=>setOpen(false)}>Contact</NavLink>
-            </li>
-
-            {!isAuth ? (
-              <>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/login" onClick={()=>setOpen(false)}>Login</NavLink>
-                </li>
-
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/register" onClick={()=>setOpen(false)}>Signup</NavLink>
-                </li>
-              </>
-            ) : (
-              <li className="nav-item position-relative profile-wrapper">
-
-                {/* PROFILE ICON */}
-                <div
-                  className="profile-icon"
-                  onClick={() => setProfileOpen(!profileOpen)}
-                >
-                  {firstLetter}
-                </div>
-
-                {/* DROPDOWN */}
-                <div className={`profile-dropdown ${profileOpen ? "show" : ""}`}>
-
-                  <NavLink
-                    to="/user/profile"
-                    className="dropdown-item"
-                    onClick={() => {
-                      setProfileOpen(false)
-                      setOpen(false)
-                    }}
-                  >
-                    Profile
-                  </NavLink>
-
-                  <NavLink
-                    to="/user/my-booking"
-                    className="dropdown-item"
-                    onClick={() => {
-                      setProfileOpen(false)
-                      setOpen(false)
-                    }}
-                  >
-                    My Booking
-                  </NavLink>
-
-                  <NavLink
-                    className="dropdown-item"
-                    to="/"
-                    onClick={() => {
-                      logout()
-                      setProfileOpen(false)
-                      setOpen(false)
-                    }}
-                  >
-                    Logout
-                  </NavLink>
-
-                </div>
-
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/" onClick={() => setOpen(false)}>Home</NavLink>
               </li>
-            )}
 
-          </ul>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/about" onClick={() => setOpen(false)}>About</NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/work-gallery" onClick={() => setOpen(false)}>Our Work</NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/contact" onClick={() => setOpen(false)}>Contact</NavLink>
+              </li>
+
+              {!isAuth ? (
+                <>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/login" onClick={() => setOpen(false)}>Login</NavLink>
+                  </li>
+
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/register" onClick={() => setOpen(false)}>Signup</NavLink>
+                  </li>
+                </>
+              ) : (
+                <li className="nav-item position-relative profile-wrapper">
+
+                  {/* PROFILE ICON */}
+                  <div
+                    className="profile-icon"
+                    onClick={() => setProfileOpen(!profileOpen)}
+                  >
+                    {firstLetter}
+                  </div>
+
+                  {/* DROPDOWN */}
+                  <div
+                    className={`profile-dropdown ${profileOpen ? "show" : ""}`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+
+                    <NavLink
+                      to="/user/profile"
+                      className="dropdown-item"
+                      onClick={() => {
+                        setProfileOpen(false)
+                        setOpen(false)
+                      }}
+                    >
+                      Profile
+                    </NavLink>
+
+                    <NavLink
+                      to="/user/my-booking"
+                      className="dropdown-item"
+                      onClick={() => {
+                        setProfileOpen(false)
+                        setOpen(false)
+                      }}
+                    >
+                      My Booking
+                    </NavLink>
+
+                    <NavLink
+                      className="dropdown-item"
+                      to="/"
+                      onClick={() => {
+                        logout()
+                        setProfileOpen(false)
+                        setOpen(false)
+                      }}
+                    >
+                      Logout
+                    </NavLink>
+
+                  </div>
+
+                </li>
+              )}
+
+            </ul>
+
+          </div>
 
         </div>
 
-      </div>
+      </nav>
 
-    </nav>
+    </div>
   )
 }
 

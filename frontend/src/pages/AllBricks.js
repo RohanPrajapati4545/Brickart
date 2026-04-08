@@ -32,60 +32,55 @@ const AllBricks = () => {
     }, [])
 
     return (
-        <div className="container mt-4">
-         
+       <div className="container mt-5">
 
-            <div className="row">
-                {
-                    bricks.map((item) => (
-                        <div className="col-md-4 mb-4" key={item._id}>
-                            <div className="card shadow">
+  <div className="row g-4">
 
-                                <img src={`https://brickart.onrender.com/uploads/${item.image}`}
-                                    className="card-img-top"
-                                    height="200"
-                                    style={{ objectFit: "cover" }} alt=''/>
+    {
+      bricks.map((item) => (
+        <div className="col-lg-4 col-md-6 col-12" key={item._id}>
 
-                                <div className="card-body">
+          <div className="brick-card-new">
 
-                                    <h5 className="card-title">
-                                        {item.brickName}
-                                    </h5>
-
-                                    {/* <p className="card-text">
-                                        {item.description}
-                                    </p> */}
-
-                                    <p><b>Price:</b> ₹{item.pricePerBrick}/per brick</p>
-                                    <p><b>Category:</b> {item.category}</p>
-                                    {/* <p><b>Stock:</b> {item.stock}</p> */}
-                                    <p><b>Size:</b> {item.size}</p>
-
-                                    {/* <video width="100%" height="150" controls>
-                                        <source
-                                            src={`http://localhost:5000/uploads/${item.video}`}
-                                            type="video/mp4"
-                                        />
-                                    </video> */}
-
-                                    <button
-                                        className="btn btn-primary w-100 mt-2"
-                                        onClick={() => isAuth
-                                            ? navigate(`/single-brick/${item._id}`)
-                                            : toast.error("Please login first")
-                                        }
-                                    >
-                                        See More
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    ))
-                }
+            <div className="brick-img-wrapper">
+              <img
+                src={`https://brickart.onrender.com/uploads/${item.image}`}
+                alt=""
+              />
+              <span className="brick-badge">{item.category}</span>
             </div>
+
+            <div className="brick-content">
+
+              <h5>{item.brickName}</h5>
+
+              <p className="price">₹{item.pricePerBrick} / brick</p>
+
+              <div className="brick-info">
+                <span>📏 {item.size}</span>
+              </div>
+
+              <button
+                className="order-btn " 
+                onClick={() => isAuth
+                  ? navigate(`/single-brick/${item._id}`)
+                  : toast.error("Please login first")
+                }
+              >
+                View Details
+              </button>
+
+            </div>
+
+          </div>
+
         </div>
+      ))
+    }
+
+  </div>
+
+</div>
     )
 }
 

@@ -23,33 +23,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* FEATURE SECTION */}
-      <section className="container my-5">
-        <div className="row text-center g-4">
-
-          <div className="col-md-4 col-12">
-            <div className="home-feature p-4">
-              🚚 Fast Delivery
-              <p>Quick delivery at your location</p>
-            </div>
-          </div>
-
-          <div className="col-md-4 col-12">
-            <div className="home-feature p-4">
-              💯 Premium Quality
-              <p>Strong & durable bricks</p>
-            </div>
-          </div>
-
-          <div className="col-md-4 col-12">
-            <div className="home-feature p-4">
-              💸 Best Pricing
-              <p>Affordable rates guaranteed</p>
-            </div>
-          </div>
-
-        </div>
-      </section>
+  
 
       {/* 🔥 ALL BRICKS */}
       <section className="container">

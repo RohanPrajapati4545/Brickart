@@ -108,6 +108,12 @@
   transition: all 0.3s ease;
 }
 
+.custom-navbar {
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+  background: white; /* important taaki niche content visible na ho */
+}
 
 
 .login-card {
@@ -166,24 +172,7 @@
   background: #285E50;
 }
 
-/* FEATURES */
-.home-feature {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(47,111,94,0.1);
-  transition: 0.3s;
-  font-weight: 600;
-}
 
-.home-feature p {
-  font-size: 14px;
-  color: gray;
-  margin-top: 5px;
-}
-
-.home-feature:hover {
-  transform: translateY(-6px);
-}
 
 /* SECTION TITLE */
 .home-section-title {
@@ -701,4 +690,161 @@
     .booking-card {
         margin-bottom: 20px;
     }
+}
+/* CARD */
+.brick-card-new {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  position: relative;
+}
+
+.brick-card-new:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.brick-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.brick-img-wrapper img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+
+
+/* BADGE */
+.brick-badge {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: white;
+  background: #357055;
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* CONTENT */
+.brick-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.brick-content h5 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* PRICE */
+.price {
+  color: #28a745;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* INFO */
+.brick-info {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+/* BUTTON */
+.brick-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #111;
+  color: white;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  .brick-img-wrapper img {
+    height: 180px;
+  }
+
+  .brick-content {
+    padding: 12px;
+  }
+
+  .brick-content h5 {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+}
+
+/* MAIN */
+.footer-section {
+  background: linear-gradient(to right, #EAF4EF, #F7FBF9);
+  
+  padding: 50px 0 20px;
+}
+
+/* LOGO */
+.footer-logo {
+  font-weight: bold;
+  color: #097165;
+}
+
+/* LINKS */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+
+.footer-links li:hover {
+  color: #097165;
+  transform: translateX(5px);
+}
+
+/* TEXT */
+.footer-section p {
+  font-size: 14px;
+ 
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 15px;
+  font-size: 14px;
+  
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-links li {
+    transform: none;
+  }
 }
