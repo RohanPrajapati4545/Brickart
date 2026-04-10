@@ -20,6 +20,7 @@ import Email from '../pages/auth/Email'
 import Recovery from '../pages/auth/Recovery'
 import Reset from '../pages/auth/Reset'
 import MyBooking from '../pages/user/MyBooking'
+import Parent from '../practice/ReactMemo'
 
 
 const AllRoutes = () => {
@@ -53,6 +54,10 @@ const AllRoutes = () => {
                     } />
                          <Route path='/user/my-booking' element={
                         <Layout><MyBooking /></Layout>
+                    } />
+                  
+                       <Route path='/parent' element={
+                        <Parent />
                     } />
                   
 

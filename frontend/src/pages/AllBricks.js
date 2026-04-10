@@ -47,12 +47,12 @@ const AllBricks = () => {
                 src={`https://brickart.onrender.com/uploads/${item.image}`}
                 alt=""
               />
-              <span className="brick-badge">{item.category}</span>
+              <span className="brick-badge">{item.brickName}</span>
             </div>
 
             <div className="brick-content">
 
-              <h5>{item.brickName}</h5>
+              <h5>{item.category}</h5>
 
               <p className="price">₹{item.pricePerBrick} / brick</p>
 
