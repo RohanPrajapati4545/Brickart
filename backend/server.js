@@ -16,7 +16,7 @@ const cors = require("cors")
 const corsOption = {
     origin: [
         'http://localhost:3000',
-        'https://brickart-git-main-rohanprajjapati-5449s-projects.vercel.app'
+        'https://brickart-delta.vercel.app'
     ],
     methods: 'GET,POST,PUT,DELETE',
     credentials: true
