@@ -937,7 +937,7 @@ body {
     #bbf7d0
   );
 }
-
+/* 
 .brick-card-new {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
@@ -950,6 +950,31 @@ body {
 .brick-card-new:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
+} */
+ .brick-card-new {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.swiper {
+  padding-bottom: 20px;
+}
+
+
+.swiper-pagination-bullet {
+  background: #cbd5e1;
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #16b650;
+  width: 20px;
+  border-radius: 10px;
+}
+.swiper-wrapper {
+  transition-timing-function: ease-in-out !important;
 }
 
 /* IMAGE */
@@ -966,9 +991,9 @@ body {
   transition: 0.4s;
 }
 
-.brick-card-new:hover img {
+/* .brick-card-new:hover img {
   transform: scale(1.05);
-}
+} */
 
 /* BADGE */
 .brick-badge {

@@ -1,5 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination } from 'swiper/modules'
 
+import 'swiper/css'
+import 'swiper/css/pagination'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
@@ -33,15 +37,34 @@ const AllBricks = () => {
     }, [])
 
     return (
-       <div className="container mt-2">
+     <div className="container mt-2">
 
-  <div className="row g-4">
+  <Swiper
+    modules={[Autoplay, Pagination]}
+    spaceBetween={20}
+    slidesPerView={1}
+    loop={true}
+
+    autoplay={{
+      delay: 2500,
+      disableOnInteraction: false
+    }}
+
+    pagination={{
+      clickable: true
+    }}
+
+    breakpoints={{
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }}
+  >
 
     {
       bricks.map((item) => (
-        <div className="col-lg-4 col-md-6 col-12" key={item._id}>
+        <SwiperSlide key={item._id } >
 
-          <div className="brick-card-new ">
+          <div className="brick-card-new">
 
             <div className="brick-img-wrapper">
               <img
@@ -62,7 +85,7 @@ const AllBricks = () => {
               </div>
 
               <button
-                className="order-btn " 
+                className="order-btn"
                 onClick={() => isAuth
                   ? navigate(`/single-brick/${item._id}`)
                   : toast.error("Please login first")
@@ -75,11 +98,11 @@ const AllBricks = () => {
 
           </div>
 
-        </div>
+        </SwiperSlide>
       ))
     }
 
-  </div>
+  </Swiper>
 
 </div>
     )
