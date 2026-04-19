@@ -33,13 +33,13 @@ const AllBricks = () => {
     }, [])
 
     return (
-       <div className="container mt-5">
+       <div className="container mt-2">
 
   <div className="row g-4">
 
     {
       bricks.map((item) => (
-        <div className="col-lg-4 col-md-6 col-12 mt-5" key={item._id}>
+        <div className="col-lg-4 col-md-6 col-12" key={item._id}>
 
           <div className="brick-card-new ">
 
