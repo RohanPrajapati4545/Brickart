@@ -12,6 +12,7 @@ const AllBricks = () => {
     const { isAuth } = useContext(AuthContext)
     const [bricks, setBricks] = useState([])
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(true)
     const getAllBricks = async () => {
         try {
             const res = await fetch("https://brickart.onrender.com/api/admin/get-all-bricks", {
@@ -24,6 +25,8 @@ const AllBricks = () => {
             if (!res.ok) return
 
             setBricks(data.data)
+           
+setLoading(false)
 
 
         } catch (error) {
@@ -39,20 +42,23 @@ const AllBricks = () => {
     return (
      <div className="container mt-2">
 
+  {!loading && bricks.length > 0 && (
   <Swiper
     modules={[Autoplay, Pagination]}
     spaceBetween={20}
     slidesPerView={1}
     loop={true}
+    speed={1000}
+
+    observer={true}
+    observeParents={true}
 
     autoplay={{
-      delay: 2500,
+      delay: 2000,
       disableOnInteraction: false
     }}
 
-    pagination={{
-      clickable: true
-    }}
+    pagination={{ clickable: true }}
 
     breakpoints={{
       768: { slidesPerView: 2 },
@@ -62,7 +68,7 @@ const AllBricks = () => {
 
     {
       bricks.map((item) => (
-        <SwiperSlide key={item._id } >
+        <SwiperSlide key={item._id }>
 
           <div className="brick-card-new">
 
@@ -103,7 +109,7 @@ const AllBricks = () => {
     }
 
   </Swiper>
-
+)}
 </div>
     )
 }
