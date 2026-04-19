@@ -23,13 +23,14 @@ const Home = () => {
         Explore Bricks →
       </button>
     </NavLink>
+   
   </div>
 </section>
 
   
 
       {/* 🔥 ALL BRICKS */}
-      <section className="container">
+      <section className="container mt-0">
        
 
         <AllBricks />

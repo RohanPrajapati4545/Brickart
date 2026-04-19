@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
@@ -38,9 +39,9 @@ const AllBricks = () => {
 
     {
       bricks.map((item) => (
-        <div className="col-lg-4 col-md-6 col-12" key={item._id}>
+        <div className="col-lg-4 col-md-6 col-12 mt-5" key={item._id}>
 
-          <div className="brick-card-new">
+          <div className="brick-card-new ">
 
             <div className="brick-img-wrapper">
               <img
