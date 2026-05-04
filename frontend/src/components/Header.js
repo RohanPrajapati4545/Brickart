@@ -17,11 +17,11 @@ const Header = () => {
     }}>
 
       <nav
-        className="navbar navbar-expand-lg custom-navbar py-3"
+        className="navbar navbar-expand-lg custom-navbar py-3 "
         onClick={(e) => e.stopPropagation()}
       >
 
-        <div className="container">
+        <div className="container ">
 
           {/* TOGGLE BUTTON */}
           <button
@@ -40,7 +40,7 @@ const Header = () => {
           {/* MENU */}
           <div className={`navbar-collapse ${open ? "show" : "collapse"} justify-content-end`}>
 
-            <ul className="navbar-nav ms-auto align-items-lg-center gap-3 flex-column flex-lg-row">
+            <ul className="navbar-nav ms-auto align-items-lg-center gap-3 flex-column flex-lg-row ">
 
               <li className="nav-item">
                 <NavLink className="nav-link" to="/" onClick={() => setOpen(false)}>Home</NavLink>

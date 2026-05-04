@@ -67,7 +67,7 @@ setLoading(false)
   >
 
     {
-      bricks.map((item) => (
+       bricks.slice(0, 4).map((item) => (
         <SwiperSlide key={item._id }>
 
           <div className="brick-card-new">

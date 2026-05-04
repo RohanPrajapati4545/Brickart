@@ -245,7 +245,8 @@ const BrickBook = () => {
                     />
 
                     <input
-                        type="date"
+                        type="date" 
+                        placeholder='Date'
                         name="deliveryDate"
                         className="form-control mb-3"
                         value={formData.deliveryDate}

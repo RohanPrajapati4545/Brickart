@@ -32,7 +32,7 @@ const Recovery = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/verify-otp", {
+      const res = await fetch("https://brickart.onrender.com/api/auth/verify-otp", {
         method: "POST",
         body: JSON.stringify({ email, otp }),
         headers: {

@@ -1,27 +1,5 @@
-// import React, { useState } from 'react'
-  
-
-// function Parent() {                                 // PROBLEM:        // with react.memo: parent re render hoga but child nhi  
-//   const [count, setCount] = useState(0);
-// console.log("parent render")
-//   return (
-//     <>
-//       <button onClick={() => setCount(count+1)}>Click</button>
-//       <Child name="r" />
-//     </>
-//   );
-// }
-// const Child = React.memo(({ name }) => {
-//   console.log("Child render");
-//   return <h1>{name}</h1>;
-// });
-
-// export default Parent
-
-
-
 // import React, { useState } from "react";
-// const Child = ({ name }) => {                         // SOLUTION     // without react.memo: parent re render hoga or child bhi hoga 
+// const Child = ({ name }) => {                         // problem     // without react.memo: parent re render hoga or child bhi hoga,  unnecessary re rendering
 //   console.log("Child render hua");
 //   return <h1>{name}</h1>;
 // };
@@ -40,6 +18,30 @@
 // }
 
 // export default Parent;
+
+
+// import React, { useState } from 'react'
+  
+
+// function Parent() {                                 // solution:        // with react.memo: parent re render hoga but child nhi  
+//   const [count, setCount] = useState(0);
+// console.log("parent render")
+//   return (
+//     <>
+//       <button onClick={() => setCount(count+1)}>Click</button>
+//       <Child name="r" />
+//     </>
+//   );
+// }
+// const Child = React.memo(({ name }) => {
+//   console.log("Child render");
+//   return <h1>{name}</h1>;
+// });
+
+// export default Parent
+
+
+
 
 
 // import React, { useState } from "react";

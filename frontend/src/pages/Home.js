@@ -19,7 +19,7 @@ const Home = () => {
     </p>
 
     <NavLink to="/all-bricks">
-      <button className="hero-btn">
+      <button className="hero-btn mt-3 mb-3">
         Explore Bricks →
       </button>
     </NavLink>
@@ -31,8 +31,6 @@ const Home = () => {
 
       {/* 🔥 ALL BRICKS */}
       <section className="container mt-0">
-       
-
         <AllBricks />
       </section>
     </div>

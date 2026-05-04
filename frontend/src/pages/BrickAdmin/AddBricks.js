@@ -106,13 +106,15 @@ const AddBricks = () => {
                     value={size}
                     onChange={(e) => setSize(e.target.value)}
                 />
+
+                Add Photo
                 <input
                     type="file"
                     className="form-control mb-2"
                     
                     onChange={(e) => setImage(e.target.files[0])}
                 />
-
+               Add Video
                 <input
                     type="file"
                     className="form-control mb-2"

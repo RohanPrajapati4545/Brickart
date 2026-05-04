@@ -14,13 +14,14 @@ import AllUsers from '../pages/BrickAdmin/AllUsers'
 import SingleBrick from '../pages/SingleBrick'
 import BrickBook from '../pages/BrickBook'
 import BookingRequest from '../pages/BrickAdmin/BookingRequest'
-import AllBricks from '../pages/AllBricks'
+
 import OurWork from '../pages/OurWork'
 import Email from '../pages/auth/Email'
 import Recovery from '../pages/auth/Recovery'
 import Reset from '../pages/auth/Reset'
 import MyBooking from '../pages/user/MyBooking'
 import Parent from '../practice/ReactMemo'
+import AllBricks2 from '../pages/user/AllBricks2'
 
 
 const AllRoutes = () => {
@@ -50,7 +51,7 @@ const AllRoutes = () => {
                         <Layout><BrickBook /></Layout>
                     } />
                      <Route path='/all-bricks' element={
-                        <Layout><AllBricks /></Layout>
+                        <Layout><AllBricks2/></Layout>
                     } />
                          <Route path='/user/my-booking' element={
                         <Layout><MyBooking /></Layout>
