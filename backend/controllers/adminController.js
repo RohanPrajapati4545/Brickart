@@ -19,8 +19,10 @@ const getAllUsers = async (req, res) => {
 const addBrick = async (req, res) => {
     try {
         const { brickName, pricePerBrick, category, stock, description, size } = req.body;
-         const image = req.files?.image?.[0]?.filename
-        const video = req.files?.video?.[0]?.filename
+        // .path = full Cloudinary URL. .filename is just the public_id and
+        // is NOT a usable image src on its own — that was the bug.
+        const image = req.files?.image?.[0]?.path
+        const video = req.files?.video?.[0]?.path
 
         if (!brickName || !pricePerBrick || !category || !stock || !size) {
             res.status(404).json({ msg: "All fields are required" })
