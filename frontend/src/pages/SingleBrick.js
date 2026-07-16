@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 import "./../App.css"
+import brickBookingSchema from '../../../backend/model/brickBookingSchema'
 
 const SingleBrick = () => {
     const { token } = useContext(AuthContext)
@@ -68,7 +69,7 @@ const SingleBrick = () => {
                     <div className="col-md-6 text-center">
 
                         <img
-                            src={`https://brickart.onrender.com/uploads/${brick.image}`}
+                            src={brick.image}
                             className="brick-img"
                             alt=""
                         />

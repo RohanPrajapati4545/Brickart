@@ -135,7 +135,7 @@ const AllBricks = ({ hideHeading = false }) => {
                         <div className="brick-card-new">
                             <div className="brick-img-wrapper">
                                 <img
-                                    src={`https://brickart.onrender.com/uploads/${item.image}`}
+                                    src={item.image}
                                     alt={item.brickName}
                                     loading="lazy"
                                     decoding="async"
