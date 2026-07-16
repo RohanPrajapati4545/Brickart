@@ -20,7 +20,7 @@ import Email from '../pages/auth/Email'
 import Recovery from '../pages/auth/Recovery'
 import Reset from '../pages/auth/Reset'
 import MyBooking from '../pages/user/MyBooking'
-import Parent from '../practice/ReactMemo'
+
 
 
 const AllRoutes = () => {
@@ -53,10 +53,7 @@ const AllRoutes = () => {
                     <Layout><MyBooking /></Layout>
                 } />
 
-                <Route path='/parent' element={
-                    <Layout><Parent /></Layout>
-                } />
-
+              
                 {/* AUTH PAGES — now wrapped so header/footer stay consistent site-wide */}
                 <Route path='/register' element={
                     <Layout><Register /></Layout>
