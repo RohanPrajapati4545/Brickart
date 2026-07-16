@@ -2,59 +2,46 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="footer-section">
-
+    <footer className="bg-dark text-light py-4 mt-5">
       <div className="container">
 
-        <div className="row g-4">
+        <div className="row">
 
-          {/* BRAND */}
-          <div className="col-lg-4 col-md-6">
-            <h4 className="footer-logo">Brickart</h4>
+          <div className="col-md-4 mb-3">
+            <h4>Brickart</h4>
             <p>
-              Providing premium quality bricks with trusted service and affordable pricing.
+              Premium quality bricks with trusted service.
             </p>
           </div>
 
-          {/* LINKS */}
-          <div className="col-lg-2 col-md-6">
+          <div className="col-md-4 mb-3">
             <h5>Quick Links</h5>
-            <ul className="footer-links">
+
+            <ul className="list-unstyled">
               <li>Home</li>
               <li>About</li>
-              <li>Our Work</li>
               <li>Contact</li>
             </ul>
           </div>
 
-          {/* SERVICES */}
-          <div className="col-lg-3 col-md-6">
-            <h5>Services</h5>
-            <ul className="footer-links">
-              <li>Brick Supply</li>
-              <li>Construction Support</li>
-              <li>Bulk Orders</li>
-              <li>Fast Delivery</li>
-            </ul>
-          </div>
-
-          {/* CONTACT */}
-          <div className="col-lg-3 col-md-6">
+          <div className="col-md-4 mb-3">
             <h5>Contact</h5>
-            <p>📍 India</p>
+
             <p>📞 +91 7415377427</p>
             <p>✉️ rohanprajjapati@gmail.com</p>
           </div>
 
         </div>
 
-        {/* BOTTOM */}
-        <div className="footer-bottom text-center mt-4">
-          <p>© 2026 Brickart. All rights reserved.</p>
+        <hr />
+
+        <div className="text-center">
+          <p className="mb-0">
+            © 2026 Brickart. All rights reserved.
+          </p>
         </div>
 
       </div>
-
     </footer>
   )
 }

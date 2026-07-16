@@ -1,20 +1,32 @@
-const multer = require("multer")
-const path = require("path")
+const multer = require("multer");
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/")
+// Cloudinary config
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Cloudinary storage engine
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "brickart_uploads",
+    allowed_formats: [
+      "jpg", "jpeg", "png", "webp", "gif",
+      "mp4", "mov", "webm",
+    ],
+    resource_type: "auto", // image ya video, khud detect kar lega
   },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname))
-  }
-})
+});
 
 const upload = multer({
-  storage,
-  limits: {
-    fileSize: 50 * 1024 * 1024 // 👈 50MB limit (video ke liye)
-  }
-})
+    storage,
+    limits: {
+        fileSize: 50 * 1024 * 1024 // 50MB (video ke liye)
+    }
+});
 
-module.exports = upload
+module.exports = upload;

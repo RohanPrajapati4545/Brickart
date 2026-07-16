@@ -51,23 +51,17 @@ const Header = () => {
               </li>
 
               <li className="nav-item">
-                <NavLink className="nav-link" to="/work-gallery" onClick={() => setOpen(false)}>Our Work</NavLink>
-              </li>
-
-              <li className="nav-item">
                 <NavLink className="nav-link" to="/contact" onClick={() => setOpen(false)}>Contact</NavLink>
               </li>
 
-              {!isAuth ? (
-                <>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/login" onClick={() => setOpen(false)}>Login</NavLink>
-                  </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/work-gallery" onClick={() => setOpen(false)}>Our Work</NavLink>
+              </li>
 
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/register" onClick={() => setOpen(false)}>Signup</NavLink>
-                  </li>
-                </>
+              {!isAuth ? (
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/login" onClick={() => setOpen(false)}>Sign In</NavLink>
+                </li>
               ) : (
                 <li className="nav-item position-relative profile-wrapper">
 
@@ -93,18 +87,7 @@ const Header = () => {
                         setOpen(false)
                       }}
                     >
-                      Profile
-                    </NavLink>
-
-                    <NavLink
-                      to="/user/my-booking"
-                      className="dropdown-item"
-                      onClick={() => {
-                        setProfileOpen(false)
-                        setOpen(false)
-                      }}
-                    >
-                      My Booking
+                      See Profile
                     </NavLink>
 
                     <NavLink

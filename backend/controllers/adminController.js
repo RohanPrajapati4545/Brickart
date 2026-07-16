@@ -51,14 +51,17 @@ const addBrick = async (req, res) => {
 //get all bricks
 const getAllBricks = async (req, res) => {
     try {
-        const data = await brickSchema.find()
+        const data = await brickSchema
+            .find()
+            .select("brickName pricePerBrick category stock description size image video createdAt")
+            .sort({ createdAt: -1 })
+            .lean()
+
         if (data.length === 0) {
             return res.status(404).json({ msg: "no bricks found" })
         }
         res.status(200).json({ msg: "bricks found successfully", data })
-    }
-
-    catch (error) {
+    } catch (error) {
         console.log(error)
         res.status(500).json({ msg: "Internal server error" })
     }
@@ -185,7 +188,7 @@ const bookBricks = async (req, res) => {
             msg: "Bricks booked successfully",
             booking
         })
-
+        
     } catch (error) {
         console.log(error)
         res.status(500).json({ msg: "Internal server error" })

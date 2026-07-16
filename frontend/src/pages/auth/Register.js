@@ -9,6 +9,7 @@ const Register = () => {
   const [contact, SetContact] = useState("")
   const [password, SetPassword] = useState("")
   const [confirm_password, SetConfirmPassword] = useState("")
+  
   const navigate = useNavigate()
 
   const sendData = async (e) => {
